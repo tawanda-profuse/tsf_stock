@@ -1,0 +1,3 @@
+To stop all server instances of node when running the application locally...
+
+taskkill /F /IM node.exe 
