@@ -1,19 +1,19 @@
-const express = require('express')
-const router = express.Router()
-const Item = require('../models/item')
-const Author = require('../models/author')
-const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'images/jfif']
+const express = require('express');
+const router = express.Router();
+const Item = require('../models/item');
+const Author = require('../models/author');
+const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'images/jfif'];
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 // All Products Route
 router.get('/', ensureAuthenticated, async (req, res) => {
-  let query = Item.find() 
+  let query = Item.find();
   if (req.query.product_code != null && req.query.product_code != '') {
     // query = query.regex('product_code', new RegExp(req.query.product_code, 'i'))
-    query = query.regex('product_code', new RegExp(req.query.product_code, '^\d+$'))
+    query = query.regex('product_code', new RegExp(req.query.product_code, '^\d+$'));
   }
   if (req.query.product_name != null && req.query.product_name != '') {
-    query = query.regex('product_name', new RegExp(req.query.product_name, 'i'))
+    query = query.regex('product_name', new RegExp(req.query.product_name, 'i'));
   }
   // if (req.query.publishedBefore != null && req.query.publishedBefore != '') {
   //   query = query.lte('publishDate', req.query.publishedBefore)
@@ -22,13 +22,13 @@ router.get('/', ensureAuthenticated, async (req, res) => {
   //   query = query.gte('publishDate', req.query.publishedAfter)
   // }
   try {
-    const items = await query.exec()
+    const items = await query.exec();
     res.render('items/index', {
       items: items,
       searchOptions: req.query
-    })
+    });
   } catch {
-    res.redirect('/')
+    res.redirect('/');
   }
 })
 
@@ -91,13 +91,13 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
     item.pageCount = req.body.pageCount
     item.description = req.body.description
     if (req.body.cover != null && req.body.cover !== '') {
-      saveCover(item, req.body.cover)
+      saveCover(item, req.body.cover);
     }
     await item.save()
-    res.redirect(`/items/${item.id}`)
+    res.redirect(`/items/${item.id}`);
   } catch {
     if (item != null) {
-      renderEditPage(res, item, true)
+      renderEditPage(res, item, true);
     } else {
       redirect('/')
     }

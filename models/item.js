@@ -24,7 +24,7 @@ const itemSchema = new mongoose.Schema({
   coverImage: {
     type: Buffer,
     required: true
-  },
+  }, 
   coverImageType: {
     type: String,
     required: true
