@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', ensureAuthenticated, async (req, res) => {
   try {
     const author = await Author.findById(req.params.id)
     const items = await Item.find({ author: author.id }).limit(6).exec()
@@ -57,7 +57,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
   try {
     const author = await Author.findById(req.params.id)
     res.render('authors/edit', { author: author })

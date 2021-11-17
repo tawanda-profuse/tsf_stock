@@ -38,7 +38,7 @@ router.get('/new', ensureAuthenticated, async (req, res) => {
 })
 
 // Create Product Route
-router.post('/', ensureAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => {
   const item = new Item({ 
     product_code: req.body.product_code,
     product_name: req.body.product_name,
@@ -80,7 +80,7 @@ router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
 })
 
 // Update Product Route
-router.put('/:id', ensureAuthenticated, async (req, res) => {
+router.put('/:id', async (req, res) => {
   let item
 
   try {
@@ -105,7 +105,7 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
 })
 
 // Delete Product Page
-router.delete('/:id', ensureAuthenticated, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   let item
   try {
     item = await Item.findById(req.params.id)
