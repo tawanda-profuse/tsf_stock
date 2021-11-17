@@ -63,7 +63,9 @@ router.get('/:id', ensureAuthenticated, async (req, res) => {
     const item = await Item.findById(req.params.id)
                            .populate('author')
                            .exec()
-    res.render('items/show', { item: item })
+    res.render('items/show', {
+      item: item
+    });
   } catch {
     res.redirect('/')
   }
