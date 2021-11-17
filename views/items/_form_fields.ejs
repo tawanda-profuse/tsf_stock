@@ -1,11 +1,15 @@
 <div class="form-row">
   <div class="form-item">
-    <label>Product</label>
-    <input type="text" name="title" value="<%= item.title %>">
+    <label>Product Code</label>
+    <input type="number" name="product_code" value="<%= item.product_code %>">
+  </div>
+  <div class="form-item">
+    <label>Product Name</label>
+    <input type="text" name="product_name" value="<%= item.product_name %>">
   </div>
   <div class="form-item">
     <label>Author</label>
-    <select name="author">
+    <select name="author"> 
       <% authors.forEach(author => { %>
         <% if (author.id === item.author) { %>
           <option selected label="<%= author.name %>" value="<%= author.id %>">
@@ -16,19 +20,17 @@
     </select>
   </div>
 </div>
-
 <div class="form-row">
   <div class="form-item">
-    <label>Date Entered</label>
-    <input type="date" name="publishDate"
-          value="<%= item.publishDate == null ? '' : item.publishDate.toISOString().split('T')[0] %>">
+    <label>Date</label>
+    <input type="date" name="createdAt"
+          value="<%= item.createdAt == null ? '' : item.createdAt.toISOString().split('T')[0] %>">
   </div>
   <div class="form-item">
     <label>Quantity</label>
-    <input type="number" name="pageCount" min="1" value="<%= item.pageCount %>">
+    <input type="number" name="quantity" min="0" value="<%= item.quantity %>">
   </div>
 </div>
-
 <div class="form-row">
   <div class="form-item form-item-no-grow">
     <label>Product Image</label>

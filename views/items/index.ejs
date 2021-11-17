@@ -2,18 +2,14 @@
 <form action="/items" method="GET">
   <div class="form-row">
     <div class="form-item">
-      <label>Product Name</label>
-      <input type="text" name="title" value="<%= searchOptions.title %>">
+      <label>Product Code</label>
+      <input type="number" name="product_code" value="<%= searchOptions.product_code %>">
     </div>
   </div>
   <div class="form-row">
     <div class="form-item">
-      <label>Release After</label>
-      <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
-    </div>
-    <div class="form-item">
-      <label>Release Before</label>
-      <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+      <label>Product Name</label>
+      <input type="text" name="product_name" value="<%= searchOptions.product_name %>">
     </div>
   </div>
   <div class="form-row form-row-end">

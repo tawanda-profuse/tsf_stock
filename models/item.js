@@ -1,20 +1,20 @@
 const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
-  title: {
+  product_code: {
+    type: Number,
+    required: true
+  },
+  product_name: {
     type: String,
+    required: true
+  },
+  quantity: {
+    type: Number,
     required: true
   },
   description: {
     type: String
-  },
-  publishDate: {
-    type: Date,
-    required: true
-  },
-  pageCount: {
-    type: Number,
-    required: true
   },
   createdAt: {
     type: Date,
