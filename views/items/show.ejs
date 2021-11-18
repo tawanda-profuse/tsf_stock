@@ -1,4 +1,4 @@
-<h2 class="page-header"><%= item.title %></h2>
+<h2 class="page-header"><%= item.product_name %></h2>
 <div class="book-details">
   <div>
     <img class="book-cover" src="<%= item.coverImagePath %>">
@@ -9,12 +9,14 @@
     </div>
   </div>
   <div class="book-details-grid">
-    <div class="book-details-label">Artist:</div>
+    <div class="book-details-label">Product Code:</div>
+    <div><%= item.product_code %></div>
+    <div class="book-details-label">Written by:</div>
     <div><%= item.author.name %></div>
-    <div class="book-details-label">Release Date:</div>
-    <div><%= item.publishDate.toDateString() %></div>
-    <div class="book-details-label">Tracks:</div>
-    <div><%= item.pageCount %></div>
+    <div class="book-details-label">Date Entered:</div>
+    <div><%= item.createdAt.toDateString() %></div>
+    <div class="book-details-label">Quantity:</div>
+    <div><%= item.quantity %></div>
     <div class="book-details-label">Details:</div>
     <div><%= item.description %></div>
   </div>

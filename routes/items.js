@@ -47,13 +47,13 @@ router.post('/', async (req, res) => {
     quantity: req.body.quantity,
     description: req.body.description
   })
-  saveCover(item, req.body.cover)
+  saveCover(item, req.body.cover);
 
   try {
-    const newItem = await item.save()
-    res.redirect(`items/${newItem.id}`)
+    const newItem = await item.save();
+    res.redirect(`items/${newItem.id}`);
   } catch {
-    renderNewPage(res, item, true)
+    renderNewPage(res, item, true);
   }
 })
 
@@ -83,19 +83,20 @@ router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
 
 // Update Product Route
 router.put('/:id', async (req, res) => {
-  let item
+  let item;
 
   try {
-    item = await Item.findById(req.params.id)
-    item.title = req.body.title
-    item.author = req.body.author
-    item.publishDate = new Date(req.body.publishDate)
-    item.pageCount = req.body.pageCount
-    item.description = req.body.description
+    item = await Item.findById(req.params.id);
+    item.product_name = req.body.product_name;
+    item.product_code = req.body.product_code;
+    item.author = req.body.author;
+    item.createdAt = new Date(req.body.createdAt);
+    item.quantity = req.body.quantity;
+    item.description = req.body.description;
     if (req.body.cover != null && req.body.cover !== '') {
       saveCover(item, req.body.cover);
     }
-    await item.save()
+    await item.save();
     res.redirect(`/items/${item.id}`);
   } catch {
     if (item != null) {
@@ -108,11 +109,11 @@ router.put('/:id', async (req, res) => {
 
 // Delete Product Page
 router.delete('/:id', async (req, res) => {
-  let item
+  let item;
   try {
-    item = await Item.findById(req.params.id)
-    await item.remove()
-    res.redirect('/items')
+    item = await Item.findById(req.params.id);
+    await item.remove();
+    res.redirect('/items');
   } catch {
     if (item != null) {
       res.render('items/show', {
@@ -120,22 +121,22 @@ router.delete('/:id', async (req, res) => {
         errorMessage: 'Could not remove product'
       })
     } else {
-      res.redirect('/')
+      res.redirect('/');
     }
   }
 })
 
 async function renderNewPage(res, item, hasError = false) {
-  renderFormPage(res, item, 'new', hasError)
+  renderFormPage(res, item, 'new', hasError);
 }
 
 async function renderEditPage(res, item, hasError = false) {
-  renderFormPage(res, item, 'edit', hasError)
+  renderFormPage(res, item, 'edit', hasError);
 }
 
 async function renderFormPage(res, item, form, hasError = false) {
   try {
-    const authors = await Author.find({})
+    const authors = await Author.find({});
     const params = {
       authors: authors,
       item: item
