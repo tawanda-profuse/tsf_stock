@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
     createdAt: new Date(req.body.createdAt),
     quantity: req.body.quantity,
     description: req.body.description
-  })
+  });
   saveCover(item, req.body.cover);
 
   try {
@@ -155,11 +155,11 @@ async function renderFormPage(res, item, form, hasError = false) {
 }
 
 function saveCover(item, coverEncoded) {
-  if (coverEncoded == null) return
-  const cover = JSON.parse(coverEncoded)
+  if (coverEncoded == null) return;
+  const cover = JSON.parse(coverEncoded);
   if (cover != null && imageMimeTypes.includes(cover.type)) {
-    item.coverImage = new Buffer.from(cover.data, 'base64')
-    item.coverImageType = cover.type
+    item.coverImage = new Buffer.from(cover.data, 'base64');
+    item.coverImageType = cover.type;
   }
 }
 
