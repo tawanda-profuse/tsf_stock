@@ -50,7 +50,9 @@ app.set('layout register', false);
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+// Testing
+// app.use(bodyParser.json());
 
 // Express session
 app.use(
@@ -88,6 +90,6 @@ app.use('/', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/items', itemRouter)
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));

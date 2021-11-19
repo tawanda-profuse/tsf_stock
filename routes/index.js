@@ -11,7 +11,7 @@ router.get('/', forwardAuthenticated, (req, res) => {
 // Home Page
 router.get('/index', forwardAuthenticated, (req, res) => {
   res.render('index', { layout: 'index' }); // I decided to use this because it disables the layouts from the index page
-}); 
+});  
 
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, async (req, res) => {

@@ -9,7 +9,8 @@
 :root {
   font-family: 'Gotham Rounded';
   font-size: 20px;
-  color: var(--color-text-light);
+  /* color: var(--color-text-light); */
+  color: green;
 }
 
 *, *::before, *::after {
@@ -17,7 +18,8 @@
 }
 
 body {
-  background: var(--color-background-dark);
+  /* background: var(--color-background-dark); */
+  background: white;
 }
 
 .container {
@@ -36,5 +38,6 @@ body {
 }
 
 .error-message {
-  color: hsl(var(--color-danger-hue), 100%, 50%);
+  /* color: hsl(var(--color-danger-hue), 100%, 50%); */
+  color: red;
 }

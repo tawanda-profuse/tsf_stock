@@ -9,7 +9,6 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 router.get('/', ensureAuthenticated, async (req, res) => {
   let query = Item.find();
   if (req.query.product_code != null && req.query.product_code != '') {
-    // query = query.regex('product_code', new RegExp(req.query.product_code, 'i'))
     query = query.regex('product_code', new RegExp(req.query.product_code, '^\d+$'));
   }
   if (req.query.product_name != null && req.query.product_name != '') {

@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Author = require('../models/author');
 const Item = require('../models/item');
-// Testing:
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 // All Authors Route
-// router.get('/', async (req, res) => {
 router.get('/', ensureAuthenticated, async (req, res) => {
   let searchOptions = {};
   if (req.query.name != null && req.query.name !== '') {
@@ -44,6 +42,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Show Authors Route
 router.get('/:id', ensureAuthenticated, async (req, res) => {
   try { 
     const author = await Author.findById(req.params.id);
@@ -57,6 +56,7 @@ router.get('/:id', ensureAuthenticated, async (req, res) => {
   }
 });
 
+// Edit Author Route
 router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
   try {
     const author = await Author.findById(req.params.id);
@@ -66,6 +66,7 @@ router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
   }
 });
 
+// Edit Author Route
 router.put('/:id', async (req, res) => {
   let author;
   try {
@@ -85,6 +86,7 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+// Delete Author Route
 router.delete('/:id', async (req, res) => {
   let author;
   try {

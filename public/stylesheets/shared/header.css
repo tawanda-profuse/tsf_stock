@@ -16,9 +16,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
+    margin-bottom: 1rem;
   }
-  
+  .header-nav p{
+    font-size: 18px;
+  }
   .header-nav ul {
     display: flex;
     margin: 0;
@@ -27,15 +30,17 @@
   
   .header-nav li {
     list-style: none;
+    color: green;
   }
   
   .header-nav li a {
     text-decoration: none;
-    color: var(--color-text-light);
+    /* color: var(--color-text-light); */
+    color: green;
     font-weight: var(--nav-link-font-weight);
     padding: 1rem;
   }
   
   .header-nav li a:hover, .header-title:hover {
-    color: white;
+    color: goldenrod;
   }
