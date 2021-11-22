@@ -51,7 +51,7 @@ app.set('layout register', false);
 // Express body parser
 // app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // Testing
 // app.use(bodyParser.json({
@@ -60,11 +60,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(express.urlencoded({ extended: true }));
 
-// app.use(bodyParser.urlencoded({
-//   limit: '50mb',
-//   parameterLimit: 100000,
-//   extended: false 
-// }));
+app.use(bodyParser.urlencoded({
+  limit: '50mb',
+  // parameterLimit: 100000,
+  extended: false 
+}));
 // Testing
 
 // Express session
