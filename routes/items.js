@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Item = require('../models/item');
 const Author = require('../models/author');
-const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'images/jfif'];
+const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'image/jfif'];
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 // All Products Route
@@ -162,4 +162,4 @@ function saveCover(item, coverEncoded) {
   }
 }
 
-module.exports = router
+module.exports = router;

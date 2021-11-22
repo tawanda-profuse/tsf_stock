@@ -3,19 +3,19 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
+const app = express();
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-const bodyParser = require('body-parser')
-const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 const itemRouter = require('./routes/items')
 
-const app = express();
 
 // Public Folder
 app.use("/public", express.static('public')); 
@@ -90,6 +90,7 @@ app.use('/', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/items', itemRouter)
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));
