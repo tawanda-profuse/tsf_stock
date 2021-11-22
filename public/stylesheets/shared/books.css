@@ -8,7 +8,6 @@
     width: var(--book-cover-width);
     height: calc(var(--book-cover-width) / var(--book-cover-aspect-ratio));
   }
-  
   .book-cover-large {
     --book-cover-width: var(--book-cover-width-large);
   }
@@ -19,7 +18,14 @@
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fill, var(--book-cover-width));
   }
-  
+  .book-grid a:hover{
+    transform: scale(0.9);
+    transition: ease-in-out .2s;
+  }
+  .book-grid a{
+    text-decoration: none;
+    color: green;
+  }
   .book-grid-large {
     grid-template-columns: repeat(auto-fill, var(--book-cover-width-large));
   }

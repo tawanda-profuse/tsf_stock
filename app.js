@@ -49,10 +49,23 @@ app.set('layout login', false);
 app.set('layout register', false); 
 
 // Express body parser
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+// app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // Testing
-// app.use(bodyParser.json());
+// app.use(bodyParser.json({
+//   limit: '50mb'
+// }));
+
+// app.use(express.urlencoded({ extended: true }));
+
+// app.use(bodyParser.urlencoded({
+//   limit: '50mb',
+//   parameterLimit: 100000,
+//   extended: false 
+// }));
+// Testing
 
 // Express session
 app.use(
@@ -90,7 +103,6 @@ app.use('/', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/items', itemRouter)
 
-// const PORT = process.env.PORT || 3000;
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server running on port ${PORT}`));

@@ -56,10 +56,13 @@
     grid-gap: 2rem;
   }
   
-  .navbar .logo {
+  /* .navbar .logo {
     font-size: 2rem;
+  } */
+  .navbar .logo img{
+    width: 180px;
+    background: gray;
   }
-  
   .navbar ul {
     justify-self: flex-end;
     display: flex;
@@ -244,7 +247,8 @@
   }
   
   .btn:hover {
-    background: var(--secondary-color);
+    background: yellow;
+    color: green;
   }
   
   .overlay {

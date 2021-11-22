@@ -8,18 +8,12 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 // All Products Route
 router.get('/', ensureAuthenticated, async (req, res) => {
   let query = Item.find();
-  if (req.query.product_code != null && req.query.product_code != '') {
-    query = query.regex('product_code', new RegExp(req.query.product_code, '^\d+$'));
-  }
+  // if (req.query.product_code != null && req.query.product_code != '') {
+  //   query = query.regex('product_code', new RegExp(req.query.product_code, 'i'));
+  // }
   if (req.query.product_name != null && req.query.product_name != '') {
     query = query.regex('product_name', new RegExp(req.query.product_name, 'i'));
   }
-  // if (req.query.publishedBefore != null && req.query.publishedBefore != '') {
-  //   query = query.lte('publishDate', req.query.publishedBefore)
-  // }
-  // if (req.query.publishedAfter != null && req.query.publishedAfter != '') {
-  //   query = query.gte('publishDate', req.query.publishedAfter)
-  // }
   try {
     const items = await query.exec();
     res.render('items/index', {

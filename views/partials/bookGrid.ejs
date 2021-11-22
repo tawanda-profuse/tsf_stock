@@ -4,7 +4,7 @@
   <% items.forEach(item => { %>
     <a href="/items/<%= item.id %>">
       <img class="book-cover <%= bookCoverClass %>" src="<%= item.coverImagePath %>">
-      <p><%= item.product_name %> </p>
+      <%= item.product_name %>
     </a>
   <% }) %>
 </div>
