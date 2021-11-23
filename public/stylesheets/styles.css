@@ -98,7 +98,10 @@
   .section-a p {
     margin: 1rem 0;
   }
-  
+  .index_img{
+    border: 1px solid green;
+    border-radius: 50%;
+  }
   .section-b {
     position: relative;
     background: url('https://i.ibb.co/1RS1dqC/section-b.jpg') no-repeat bottom center/cover;
