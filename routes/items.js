@@ -8,9 +8,9 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 // All Products Route
 router.get('/', ensureAuthenticated, async (req, res) => {
   let query = Item.find();
-  // if (req.query.product_code != null && req.query.product_code != '') {
-  //   query = query.regex('product_code', new RegExp(req.query.product_code, 'i'));
-  // }
+  if (req.query.product_code != null && req.query.product_code != '') {
+    query = query.in('product_code', req.query.product_code);
+  }
   if (req.query.product_name != null && req.query.product_name != '') {
     query = query.regex('product_name', new RegExp(req.query.product_name, 'i'));
   }

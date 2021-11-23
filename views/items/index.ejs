@@ -1,6 +1,10 @@
 <h2 class="page-header">Search Products</h2>
 <form action="/items" method="GET">
   <div class="form-row">
+    <div class="form-item">
+      <label>Product Code</label>
+      <input type="text" name="product_code" value="<%= searchOptions.product_code %>">
+    </div>
   </div>
   <div class="form-row">
     <div class="form-item">
