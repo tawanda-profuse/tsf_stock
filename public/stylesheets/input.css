@@ -1,0 +1,9 @@
+.input-group-addon{
+    z-index: 1;
+    margin-left: 690px;
+    cursor: pointer;
+    background-color: mintcream;
+    padding: 5px;
+    border: 1px solid lightgreen;
+    border-radius: 50%;
+}

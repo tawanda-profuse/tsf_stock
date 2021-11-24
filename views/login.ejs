@@ -10,7 +10,9 @@
       rel="stylesheet"
       href="https://bootswatch.com/5/minty/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/stylesheets/input.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 <body>
 <div class="row mt-5">
@@ -29,8 +31,10 @@
               placeholder="Enter Email"
             />
           </div>
+          <br>
           <div class="form-group">
             <label for="password">Password</label>
+            <div class="input-group" id="show_hide_password">
             <input
               type="password"
               id="password"
@@ -38,7 +42,12 @@
               class="form-control"
               placeholder="Enter Password"
             />
+           <div class="input-group-addon" title="Show Password">
+             <i class="fa fa-eye" aria-hidden="true" id="togglePassword"></i>
           </div>
+          </div>
+          </div>
+          <br>
           <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
         <p class="lead mt-4">
@@ -47,6 +56,19 @@
       </div>
     </div>
   </div>
+  <!-- Show Password Toggle -->
+  <script>
+      const togglePassword = document.querySelector('#togglePassword');
+      const password = document.querySelector('#password');
+ 
+      togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+});
+  </script>
   <!-- JQuery Tags -->
   <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
