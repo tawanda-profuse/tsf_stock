@@ -35,6 +35,8 @@
   #showcase p{
     font-size:20px;
     font-weight: bold;
+    z-index: 2;
+    text-shadow: 1px 1px 0px green;
   }
   
   #showcase .button{
@@ -82,5 +84,15 @@
   
   #section-c .box-2{
     background:#f9f9f9;
+  }
+  @media screen and (min-width: 280px) and (max-width: 319px) {
+    #showcase h1{
+      font-size: 50px;
+    } 
+  }
+  @media screen and (min-width: 320px) and (max-width: 500px) {
+    #showcase h1{
+      font-size: 60px;
+    }  
   }
   

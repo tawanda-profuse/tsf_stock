@@ -50,8 +50,10 @@
     padding-bottom: 0.3rem;
   }
   
-  .navbar .container {
+  .navbar .nav_container {
+    max-width: 1100px;
     display: grid;
+    margin: auto;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
   }
@@ -264,7 +266,7 @@
   }
   /* Mobile Responsiveness */
   @media screen and (max-width: 960px){
-    .container{
+    .nav_container{
       display: flex;
       justify-content: space-between;
       /* height: 80px; */
@@ -275,7 +277,7 @@
       padding: 0;
     }
     .nav{
-      display: grid;
+      /* display: grid; */
       grid-template-columns: auto;
       margin: 0;
       width: 100%;
@@ -288,13 +290,14 @@
       background: green;
     }
     .nav.active{
-      background: white;
+      background: lightgreen;
+      display: grid;
       /* top: 100%; */
       top: 20%;
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 99;
-      height: 50vh;
+      height: 30vh;
       font-size: 1.6rem;
     }
     .logo{
@@ -335,6 +338,61 @@
     }
     #mobile-menu.is-active .bar:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
+    }
+    .container h1{
+      margin-left: 60px;
+    }
+    .container p{
+      margin-left: 60px;
+    }
+    .container a{
+      margin-left: 100px;
+    }
+    .index_img{
+      width: 350px;
+      height: 500px;
+      margin-right: 50px;
+    }
+  }
+  @media screen and (max-width: 851px){
+    .index_img{
+      width: 330px;
+      height: 400px;
+      margin-left: 50px;
+      margin-bottom: 100px;
+    }
+    .container h1{
+      margin-left: 80px;
+      margin-top: 50px;
+      font-size: 3rem;
+    }
+    .container p{
+      margin-left: 80px;
+    }
+    .container a{
+      margin-left: 100px;
+      margin-top: 20px;
+    }
+  }
+  @media screen and (min-width: 360px) and (max-width: 500px){
+    .index_img{
+      width: 500px;
+      height: 200px;
+      margin-left: auto;
+      margin-top: 100px;
+      border: 2px solid green;
+    }
+    .container h1{
+      margin-left: auto;
+      margin-top: 8px;
+      font-size: 2rem;
+    }
+    .container p{
+      margin-left: auto;
+    }
+    .container a{
+      margin-left: auto;
+      /* margin-top: 20px; */
     }
   }
   @media (max-width: 700px) {
