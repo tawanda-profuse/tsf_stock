@@ -1,14 +1,31 @@
-<header>
+<!-- <header> -->
   <nav class="header-nav"> 
+    <div class="navbar__container">
     <a class="header-title" href="/">
-      <img width="150px" src="/public/images/tsf.jfif" alt="TSF Logo">
+      <img width="150px" src="/public/images/tsf.jfif" alt="TSF Logo" id="navbar__logo">
     </a>
-    <ul>
-      <li><a href="/authors">Authors</a></li>
+    <!-- Testing -->
+    <div class="navbar__toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <!-- Testing -->
+    <ul class="nav">
+      <li class="navbar__item">
+        <a class="navbar__links" href="/authors">Authors</a>
+      </li>
       <!-- <li><a href="/authors/new">Add New Author</a></li> -->
-      <li><a href="/items">Products</a></li>
-      <li><a href="/items/new">New Product</a></li>
-      <li><a class="logout_btn" href="/users/logout">Logout <i class="fa fa-sign-out"></i> </a></li>
+      <li class="navbar__item">
+        <a class="navbar__links" href="/items">All Products</a>
+      </li>
+      <li class="navbar__item">
+        <a class="navbar__links" href="/items/new">Inbound Flow</a>
+      </li>
+      <li class="navbar__item">
+        <a class="logout_btn navbar__links" href="/users/logout">Logout <i class="fa fa-sign-out"></i> </a>
+      </li>
     </ul>
+  </div>
   </nav>
-</header>
+<!-- </header> -->
