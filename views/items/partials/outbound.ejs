@@ -1,0 +1,22 @@
+<section id="outbound">
+  <div class="form-row">
+  <h1>Product Outflow</h1>
+</div>
+<div class="form-row" id="outbound">
+  <div class="form-item">
+    <label>Outbound Quantity</label>
+    <input type="number" name="out_quantity" 
+      placeholder="Current quantity =<% if(item.quantity > item.updatedQuantity){%>
+        <%=item.updatedQuantity%> 
+        <%}else if (item.quantity < item.updatedQuantity){%> 
+        <%=item.quantity %>
+        <%}%> 
+    "value="<%= item.out_quantity %> ">
+  </div>
+  <div class="form-item">
+    <label>Outbound Date</label>
+    <input type="date" name="out_date" value="<%= item.out_date %> ">
+  </div>
+</div>
+</section>
+

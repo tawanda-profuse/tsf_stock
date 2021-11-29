@@ -16,7 +16,6 @@ const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 const itemRouter = require('./routes/items')
 
-
 // Public Folder
 app.use("/public", express.static('public')); 
 app.use(express.static('public'))
@@ -49,17 +48,6 @@ app.set('layout login', false);
 app.set('layout register', false); 
 
 // Express body parser
-// app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-// Testing
-// app.use(bodyParser.json({
-//   limit: '50mb'
-// }));
-
-// app.use(express.urlencoded({ extended: true }));
-
 app.use(bodyParser.urlencoded({
   limit: '50mb',
   // parameterLimit: 100000,
@@ -95,7 +83,6 @@ app.use(function(req, res, next) {
 });
 
 // Routes
-// app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 
 // Product Routes

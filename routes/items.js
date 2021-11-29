@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Item = require('../models/item');
 const Author = require('../models/author');
+const Outbound = require('../models/outbound');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'image/jfif'];
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
@@ -74,31 +75,34 @@ router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
   }
 })
 
-// Update Product Route
-router.put('/:id', async (req, res) => {
-  let item;
-
-  try {
-    item = await Item.findById(req.params.id);
-    item.product_name = req.body.product_name;
-    item.product_code = req.body.product_code;
-    item.author = req.body.author;
-    item.createdAt = new Date(req.body.createdAt);
-    item.quantity = req.body.quantity;
-    item.description = req.body.description;
-    if (req.body.cover != null && req.body.cover !== '') {
-      saveCover(item, req.body.cover);
+  // Update Product Route
+  router.put('/:id', async (req, res) => {
+    let item;
+  
+    try {
+      item = await Item.findById(req.params.id);
+      item.product_name = req.body.product_name;
+      item.product_code = req.body.product_code;
+      item.author = req.body.author;
+      item.createdAt = new Date(req.body.createdAt);
+      item.description = req.body.description;
+      item.out_date = req.body.out_date;
+      item.quantity = req.body.quantity;
+      item.out_quantity = req.body.out_quantity;
+      item.updatedQuantity = item.quantity - item.out_quantity;
+      if (req.body.cover != null && req.body.cover !== '') {
+        saveCover(item, req.body.cover);
+      }
+      await item.save();
+      res.redirect(`/items/${item.id}`);
+    } catch {
+      if (item != null) {
+        renderEditPage(res, item, true);
+      } else {
+        redirect('/')
+      }
     }
-    await item.save();
-    res.redirect(`/items/${item.id}`);
-  } catch {
-    if (item != null) {
-      renderEditPage(res, item, true);
-    } else {
-      redirect('/')
-    }
-  }
-})
+  });
 
 // Delete Product Page
 router.delete('/:id', async (req, res) => {
@@ -122,7 +126,6 @@ router.delete('/:id', async (req, res) => {
 async function renderNewPage(res, item, hasError = false) {
   renderFormPage(res, item, 'new', hasError);
 }
-
 async function renderEditPage(res, item, hasError = false) {
   renderFormPage(res, item, 'edit', hasError);
 }
@@ -137,7 +140,8 @@ async function renderFormPage(res, item, form, hasError = false) {
     if (hasError) {
       if (form === 'edit') {
         params.errorMessage = 'Error updating product details'
-      } else {
+      } 
+      else {
         params.errorMessage = 'Error creating product'
       }
     }

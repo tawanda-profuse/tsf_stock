@@ -7,6 +7,9 @@
       <%- include('../partials/deleteForm', { url: `/items/${item.id}` }) %>
       <a class="btn btn-primary book-details-author-button" href="/authors/<%= item.author.id %>">View Author</a>
     </div>
+    <div class="book-details-btn-grid">
+      <a class="btn btn-success" href="/items/<%= item.id %>/edit#outbound">Outbound <i class="fa fa-truck"></i></a>
+    </div>
   </div>
   <div class="book-details-grid">
     <div class="book-details-label">Product Code:</div>
@@ -16,7 +19,19 @@
     <div class="book-details-label">Date Entered:</div>
     <div><%= item.createdAt.toDateString() %></div>
     <div class="book-details-label">Quantity:</div>
-    <div><%= item.quantity %></div>
+      <% if (item.quantity == item.updatedQuantity) { %> 
+        <div><%= item.quantity %></div>
+      <% } else if (item.quantity > item.updatedQuantity) { %> 
+        <div><%= item.updatedQuantity %></div>
+      <% } else { %> 
+        <div><%= item.quantity %></div>
+      <% } %>
+    <div class="book-details-label">Outbound Quantity:</div>
+    <div><%= item.out_quantity %></div>
+    <div class="book-details-label">Outbound Date:</div>
+    <% if (item.out_date) { %>    
+    <div><%= item.out_date.toDateString() %></div>
+    <% } %>
     <div class="book-details-label">Product Details:</div>
     <div><%= item.description %></div>
   </div>

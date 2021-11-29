@@ -13,6 +13,9 @@ const itemSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  updatedQuantity: {
+    type: Number,
+  },
   description: {
     type: String
   },
@@ -28,6 +31,13 @@ const itemSchema = new mongoose.Schema({
   coverImageType: {
     type: String,
     required: true
+  },
+  out_date: {
+    type: Date
+  },
+  out_quantity: {
+    type: Number,
+    default: 0
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
