@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Item = require('../models/item');
 const Author = require('../models/author');
-const Outbound = require('../models/outbound');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'image/jfif'];
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
